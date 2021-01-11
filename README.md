@@ -1,1 +1,89 @@
-# anitaintro
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>軟體工程師扶持計畫-Anita</title>
+		<style type="text/css" media="screen">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			p{
+				padding: 5px;
+				margin-left: 30px;
+			}
+			.box{
+				background-color: #FEEFE5;
+				width: 100%;
+			}
+
+			.topic{
+				font-size: 24px;
+				font-family: Microsoft JhengHei;
+				margin-left: 50px;
+				text-align: center;
+				display:block;
+				color: #555;
+				
+			}
+
+			.me{
+				border-radius: 100%;	
+			}
+
+			.title{
+				font-size: 18px;
+				font-weight: bold;
+				font-family: Microsoft JhengHei;
+				padding: 10px;
+				border-top-style: solid;
+				border-width: 1px;
+				border-color: #FFB326;
+			}
+
+		</style>
+	</head>
+	<body>
+<div class="box">
+<h3 class="topic">軟體工程師扶持計畫  林侑儒 Anita Lin
+<span><img class="me" src="https://scontent.xx.fbcdn.net/v/t1.15752-0/p206x206/132561555_404459004165701_8461875800676997830_n.png?_nc_cat=107&ccb=2&_nc_sid=58c789&_nc_ohc=kR-JfMDX_BYAX9_x0uj&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&_nc_tp=30&oh=5b5ad4962403be5190a73c2df08aae80&oe=60110CFB" alt="Anita photo" ></span></h3>
+</div>
+
+<div class="title"><li>個人簡介</li></div>
+	<p style="line-height: 30px">在數位行銷領域，從事廣告AE到金融行銷PM已有五年的工作經驗，需要大量接觸前端網頁工程師，與之溝通、討論、協商，在溝通過程最大障礙是因為不了解程式作業的流程及其牽涉範疇，以至只能用不斷累積的經驗值來修正錯誤，也因為從「錯」中學，讓我不經思考著，如果加入前端工程師的行列，是不是能創造工作的更多可能性，除了讓原有專案管理的技能更上一層外，未來也想朝前端網頁工程師一職前進，為人生下半場開啟新的契機！</p>
+
+<div class="title"><li>為什麼想成為工程師？</li></div>
+	<p>基於兩個目的：</p>
+	<p>1. 想了解更多有關軟體、資訊、研發、設備工程師的工作內容，克服與資訊溝通的障礙跟困難。</p>
+	<p>2. 跳脫舒適圈，成功轉職成為前端工程師，突破行銷專案管理的瓶頸與天花板，成為真正有硬技術和軟實力的人才。</p>
+
+<div class="title"><li>為了成為工程師，曾經做過什麼努力？</li></div>
+	<p>1.2019/5-6月，完成freecodecamp課程Responsive Web Design Certification。</p>
+	<p>2.2019/7-8月上過職訓短期課程，學會用sublime，建立自己的雲端空間。</p>
+	<p>3.2020/2月-8月完成Hahow動畫互動網頁程式入門，對JS、JQ有初步的概念。</p>
+
+<div class="title"><li>對於工程師的職業想像是什麼？</li></div>
+	<p>工作環境：不受限於空間，只要有網路的地方有一台電腦，隨時都可以完成工作。</p>
+	<p>工作夥伴：與專案經理釐清需求、與視覺設計師確認介面、與後端工程師討論串接規格。</p>
+	<p>工作內容：工作時間分成三部分：70%執行技術開發、測試，20％跨部門討論、釐清規格，10%自我成長學習。</p>
+
+<div class="title"><li>如果參與這個計畫，會怎麼安排學習時間？</li></div>
+	<p>離開現在行銷PM工作全職投入計劃，按照課程進度並準時交付作業。</p>
+	<p>以一週60小時的學習計畫，平均一天至少有8小時的練習，我會依課程難易度跟自己的吸收狀況，調整3-3-2的學習進度，3小時看當週課程進度影片，3小時實作練習，2小時筆記整理與進度報告。</p>
+
+<div class="title"><li>如果參與這個計畫，預期會碰到什麼困難？你打算怎麼解決它？</li></div>
+	<p>預期可能面對的困難：不知道哪個環節出問題，找不到邏輯設計的盲點等等，我會以三種方式來解決：<br>
+	<p>第一步：重新檢視程式碼，從框架、版面、內容、樣式，通通檢查一次，從小地方開始一一擊破，如果是整體架構的問題，就打掉重練(視專案範疇大小判斷可行性)。</p>
+	<p>第二步：如果明確知道是架構或樣式的問題，上網找答案，釐清標籤的應用場景及搭配的用法等，再次破解自己撰寫程式的誤區。</p>
+	<p>第三步：開口請教夥伴、助教、老師，汲取前輩的經驗跟思考脈絡，或在stackoverflow上發問，一方面獲得更多元的解法，也練習自己的英文能力。</p>
+
+<div class="title"><li>想要對我們說的事情？</li></div>
+	<p>謝謝彭老師提供這樣的計畫，讓更多人有機會進入軟體工程師的領域，課程的編排看得出教學的用心，也希望自己能有機會成為其中一員，順利建立起職涯第二利器。</p>
+	<p>1. 希望能更了解課程的編排與進度，例如每週的課程主題，作業內容？</p>
+	<p>2. 希望能分享轉職成功的前輩們，如何整理自己的學習筆記？（Github或Notion等其他線上筆記分享）</p>
+
+
+	</body>
+	</html>	
