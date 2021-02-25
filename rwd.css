@@ -1,0 +1,36 @@
+* { margin:0px; padding:0px; box-sizing:border-box; }
+header { display:flex; justify-content:space-between; align-items:center; }
+body { font-family:'Brygada 1918', serif; font-size:20px; }
+
+/* header */
+.header { display:flex; justify-content:space-between; align-items:center; padding:10px; }
+.header .menu { display:flex;  }
+.header .menu a { padding:10px; }
+.header .menubtn { display:none; }
+
+/* topic */
+.topic { display:block; background-color:#ccc; height:300px; position:relative; }
+.topic p { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+
+/* content */
+.content { display:flex; flex-wrap:wrap; width:100%; max-width:1200px; margin:0 auto; } 
+.content .box { box-sizing:border-box; width:25%; } 
+.content .box .photo { padding:10px; }
+.content .box .photo img { display:block; width:100%; max-width:auto; }
+.content .box .title p { text-align:center; font-weight:bold; }
+
+/* 600 像素 < 螢幕解析度的寬度 <= 1200 像素 */
+@media (max-width:1200px) and (min-width:600px){ 
+	.content{ width:90%; }
+	.content .box { width:50%; } 
+}
+
+/* 螢幕解析度的寬度 <= 600 像素 */
+@media (max-width:600px){
+	.content .box { width:100%; } 
+	.header .menubtn { display:block; }
+	.header .menubtn .bar { width:20px; height:2px; background-color:#000; position:relative; cursor:pointer; }
+	.header .menubtn .bar:before { content:''; width:20px; height:2px; background-color:#000; position:absolute; top:7px; }
+	.header .menubtn .bar:after { content:''; width:20px; height:2px; background-color:#000;  position:absolute; top:-7px;}
+	.header .menu { display:none; }
+}
