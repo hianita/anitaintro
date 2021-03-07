@@ -8,20 +8,19 @@
     <title>js3</title>
     <script>
         function maxProduct(nums) {
-            var max = 0;
             var op = 0;
+            var set = [];
             for (i = 0; i < nums.length; i++) {
                 for (j = i + 1; j < nums.length; j++) {
                     op = nums[i] * nums[j];
-                    if (op > max) {
-                        max = op;
-                    };
+                    set.push(op);
                 };
             };
-            console.log(max);
+            console.log(Math.max.apply(null, set));
         }
         maxProduct([5, 20, 2, 6]);
         maxProduct([10, -20, 0, 3]);
+        maxProduct([-10, 2]);
     </script>
 </head>
 
