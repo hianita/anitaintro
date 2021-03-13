@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trytrytry</title>
+    <link rel="stylesheet" href="css/rwd.css">
+    <script>
+        let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json"
+        fetch(src)
+            .then(function(response) { //用AJAX格式抓取資料
+                return response.json(); //將資料用json格式詮釋成：物件和陣列的組合
+            })
+            .then(function(data) { //把上方的內容都放進來，data自定義外部資料的名稱
+                //map語法可以把每個鍵值都依序跑出來，類似for的寫法，自定義的list代表results裡面的所有資料
+                //回傳要的指定資料：景點(單純的鍵值，找到對應的key-value)、網址(要處理切割的問題，只取第一個)
+                return data.result.results.slice(0, 8).map(function(list) {
+                    return {
+                        "stitle": list.stitle,
+                        "file": "http://" + list.file.split(/http:\/\//i)[1]
+                    };
+                });
+            }).then(function(data) {
+                console.log(data);
+                for (n = 0; n < data.length; n++) {
+                    console.log(n);
+
+                    var contentbox = document.createElement("div");
+                    contentbox.className = "box";
+                    var photobox = document.createElement("div");
+                    photobox.className = "photo";
+                    contentbox.appendChild(photobox);
+                    var imgbox = document.createElement("img");
+                    imgbox.src = data[n].file;
+                    photobox.appendChild(imgbox);
+
+                    var titlebox = document.createElement("div");
+                    titlebox.className = "title";
+                    contentbox.appendChild(titlebox);
+                    var pname = document.createElement("p");
+                    titlebox.appendChild(pname);
+                    pname.innerText = data[n].stitle;
+                    
+                    document.getElementById("content").appendChild(contentbox);
+                }
+            });
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <p>My Website</p>
+        </div>ｂ
+        <div class="menu">
+            <a>Item1</a>
+            <a>Item2</a>
+            <a>Item3</a>
+            <a>Item4</a>
+        </div>
+        <div class="menubtn">
+            <div class="bar"></div>
+        </div>
+    </div>
+    <div class="topic">
+        <p>Welcome to MyHome</p>
+    </div>
+    <div class="content" id="content"></div> 
+</body>
+
+</html>
