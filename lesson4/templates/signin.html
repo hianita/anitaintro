@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    <style>
+        * { margin:0px; padding:0px; }
+        body { font-size:18px; }
+        .topic{ text-align:center; background-color:#072C6B; color:#fff; padding:30px; width:500px; margin:10px auto; }
+        .main{ text-align:center; margin:30px; }
+        .main form{ margin:15px; }
+        .main .ac{ padding:10px; margin:10px; }
+        .main .pw{ padding:10px; margin:10px; }
+        .button { border:1px solid gray; width:50px; border-radius:8%; justify-content:center; }
+    </style>
+</head>
+<body>
+    <div class="topic">
+        <h3>歡迎光臨，請輸入帳號密碼</h3>
+    </div>
+    
+    <div class="main"><p><b>登入系統</b></p>
+        <form method="POST" action="/signin" >
+            <p>帳號<input type="text" class="ac" name="account" placeholder="Account"></p>
+            <p>密碼<input type="password" class="pw" name="password" placeholder="Password"></p>
+            <input type="submit" class="button" name="login" value="登入">
+        </form>
+    </div>
+</body>
+</html>
