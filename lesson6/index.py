@@ -21,44 +21,60 @@ def  index ():
  #註冊 
 @app.route ( "/signup" , methods = [ "POST" ])
 def  signup (): 
-    mycursor.execute ("SELECT username FROM user") #在表單找資料
-    username = mycursor.fetchall() #找到的username
+    mycursor.execute (f"SELECT * FROM user where username ='{request.values['username']}'") #在表單找資料
+    username = mycursor.fetchone() #找到的username
     print (type(username))
     # print (type(request.values[ "username" ]))
     # print (type(request.values[ "username" ]))
     # print (username)
     # print (request.values[ "username" ])
-    if (str(request.values[ "username" ]),) not in username: 
+    if username: 
+        return redirect ("/error/?message=帳號已經被註冊")
         #把資料庫的username和用戶輸入的username比較，如果沒有就寫入，如果資料庫有就去錯誤頁
+    else:
        sql = "INSERT INTO user (name, username, password) VALUES (%s, %s, %s)" #對資料庫寫入姓名、帳號、密碼的欄位
        val = (request.values[ "name" ],request.values[ "username" ],request.values[ "password" ])
        mycursor.execute(sql, val)
        dbset.commit()
        return render_template ( "signin.html" )
-    else:
-       return redirect ("/error/?message=帳號已經被註冊")
+       
     
 # 登入 
 @app.route ( "/signin" , methods = [ "POST" ])
 def  signin ():
     session[ "username" ]= request.values[ "username" ]#session就是把用戶輸入的資料放入空間
-    session[ "password" ]= request.values[ "password" ] 
-    mycursor.execute ("SELECT name, username, password FROM user")
-    result = mycursor.fetchall() #找到所有資料，往下做比較
-    # print(result)
-    for i in range(len(result)):
-        print(type(result[i][1]))
-        if result[i][1] == request.values["username"] and result[i][2] == request.values["password"]:
-            session["name"] = result[i][0]
-            return redirect("/member")
-    return redirect("/error/?message=帳號與密碼錯誤") 
+    session[ "password" ]= request.values[ "password" ]
+    
+    mycursor.execute (f"SELECT * FROM user where username ='{request.form['username']}'")
+    myresult = mycursor.fetchone()
+    print(myresult)
+    print(type(myresult))
+    
+    if myresult[2]==request.form["username"] and myresult[3]==request.form["password"]:
+        session["name"]=myresult[1]
+        return redirect("/member")
+    else:
+        return redirect("/error/?message=帳號與密碼不正確")  
+            
+
+
+    # session[ "username" ]= request.values[ "username" ]#session就是把用戶輸入的資料放入空間
+    # session[ "password" ]= request.values[ "password" ] 
+    # mycursor.execute (f"SELECT * FROM user where username='{request.form['username']}'")
+    # result = mycursor.fetchone() #找到所有資料，往下做比較
+    # # print(result)
+    # for i in range(len(result)):
+    #     if result[i][1] == request.values["username"] and result[i][2] == request.values["password"]:
+    #         session["name"] = result[i][0]
+    #         return redirect("/member")
+    # return redirect("/error/?message=帳號與密碼錯誤") 
     #到錯誤頁面的判斷條件在登入時就要做，此時訊息名稱message要與錯誤頁面的訊息指令相同，才抓得到資料
 
 #登入成功
 @app.route ( "/member" )
 def  member ():
     if  session.get ( "user" ):
-        return  render_template ( "member.html", nametitle=session[ "name" ] )
+        return render_template ( "member.html", nametitle=session[ "name" ] )
     else :
         return  redirect ( "/" )
 
