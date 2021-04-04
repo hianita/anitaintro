@@ -45,13 +45,11 @@ def  signin ():
     session[ "username" ]= request.values[ "username" ]#session就是把用戶輸入的資料放入空間
     session[ "password" ]= request.values[ "password" ]
     
-    mycursor.execute (f"SELECT * FROM user where username ='{request.form['username']}'")
-    myresult = mycursor.fetchone()
-    print(myresult)
-    print(type(myresult))
+    mycursor.execute (f"SELECT name,username,password FROM user where username ='{request.form['username']}'")
+    result = mycursor.fetchone()
     
-    if myresult[2]==request.form["username"] and myresult[3]==request.form["password"]:
-        session["name"]=myresult[1]
+    if result[1]==request.form["username"] and result[2]==request.form["password"]:
+        session["name"]=result[0]
         return redirect("/member")
     else:
         return redirect("/error/?message=帳號與密碼不正確")  
