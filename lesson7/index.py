@@ -2,10 +2,10 @@ from  flask  import  Flask , render_template , request , redirect , url_for , se
 import mysql.connector
 
 dbset =  mysql.connector.connect(
-    host="127.0.0.1",
-    user="root",
-    password="adgjl147",
-    database="website",
+    host="",
+    user="",
+    password="",
+    database="",
     charset='utf8',
     buffered=True
     )
