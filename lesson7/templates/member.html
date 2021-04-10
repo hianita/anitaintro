@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member</title>
+    <style>
+        * { margin:0px; padding:0px; }
+        body { font-size:18px; }
+        .topic{ text-align:center; background-color:#072C6B; color:#fff; padding:30px; width:500px; margin:10px auto; }
+        .text p{ text-align:center; margin-top:10px; }
+        .button { border:1px solid gray; width:80px; border-radius:8%; display:block; margin:10px auto; }
+        .form { text-align:center; padding:5px; }
+    </style>
+</head>
+<body>
+    <div class="topic">
+        <h3>歡迎光臨，這是會員頁</h3>
+    </div>
+    <div class="text">
+        <p>{{nametitle}}恭喜您！成功登入系統</p> 
+        <!-- nametitle自行命名，對應到python去取值，所以python取值時，要用nametitle才抓得到資料 -->
+    </div>
+    <form action="/" >
+        <input type="submit" class="button" name="logout" value="登出系統">
+    </form>
+    <!-- 查詢會員姓名 -->
+    <div method="get" action="/member" class="form">
+        <h3 class = "membername">查詢會員姓名</h3>
+        <input type = "text" class = "form" id = "search" name = "username">
+        <button class="submit" id="outcome">查詢</button>
+        <div id = "box"></div>
+    </div>
+</body>
+<!-- 找到會員資料，顯示在網址上 -->
+<script>
+    var btn = document.getElementById("outcome");
+    var execution = function(){
+        var member_name = document.getElementById("search").value;
+        let src = ("http://127.0.0.1:3000/api/user?username="+member_name);
+        console.log(src)
+        fetch(src).then(function(response){
+            return response.json(); 
+        }).then(function(finddata){ 
+        console.log(finddata)
+        var find_name = finddata.data.name;
+        var find_username = finddata.data.username;
+        console.log(find_name)
+
+    var space = document.createElement('div');
+    space.className = 'form';
+    
+    var spacename = document.createElement('span');
+    space.appendChild(spacename);
+    spacename.innerText = find_name;
+
+    var spacename = document.createElement('span');
+    space.appendChild(spacename);
+    spacename.innerText = "(" +find_username +")";
+
+    document.getElementById("box").appendChild(space);
+
+    });
+    };
+    btn.addEventListener("click", execution);
+    
+</script>
+
+
+</html>
